@@ -12,6 +12,6 @@ launches some apps in specific workspaces
 self exlanatory
 
 some required packages:
-light (allows for brightness control)
-pavucontrol (allows audio control via pulseaudio)
+- light (allows for brightness control)
+- pavucontrol (allows audio control via pulseaudio)
 
