@@ -17,6 +17,7 @@ apps=(
    "pulseaudio"
    "bluez"
    "bluez-utils"
+   "yazi"
 )
 aur_apps=(
    "zen-browser-bin"
@@ -67,6 +68,7 @@ cp hypr/mocha.conf ~/.config/hypr/mocha.conf
 cat hypr/hyprland.conf > ~/.config/hypr/hyprland.conf
 cat hypr/hyprpaper.conf > ~/.config/hypr/hyprpaper.conf
 echo "setting up zsh..."
+chsh /usr/bin/zsh
 cat .zshrc > ~/.zshrc
 echo "youll have to manually create user profiles and move the chrome folder into them, sry"
 echo "reminder to replace passwords in hyprland.conf with your sudo password!!! get there by running hyprconf in your terminal"
