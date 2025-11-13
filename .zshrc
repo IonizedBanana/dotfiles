@@ -2,17 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+export PATH=$PATH:/home/banana/.local/bin
+export PATH=$PATH:/home/banana/.spicetify
+export GTK_USE_PORTAL=1
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -23,11 +15,11 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 2
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -72,7 +64,7 @@ export PROMPT_EOL_MARK=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux colorize colored-man-pages sudo)
+plugins=(git colorize colored-man-pages sudo)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,11 +76,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,19 +92,27 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
  alias zshconf="nvim ~/.zshrc"
- alias hyprconf="nvim ~/.config/hypr/hyprland.conf"
- alias todo="nvim ~/.todo"
+ alias niriconf="nvim ~/.config/niri/config.kdl"
+ alias todo="nvim ~/.todo.md"
  alias //="cd ~/.config"
  alias waybarconf="nvim ~/.config/waybar/config.jsonc"
  alias waybarcat="cat ~/.config/waybar/config.jsonc > ~/.config/waybar/config"
- alias sshban="ssh banana@192.168.1.216"
+ alias sshban="ssh banana@192.168.1.118"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vpn="expressvpn"
 alias swap="cd ~/.local/state/nvim/swap//"
 alias disconnect="iwctl station wlan0 disconnect"
 alias fo="~/.scripts/obsidian-fixer.sh"
-alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && iwctl station wlan0 connect \"Caydens phone\""
+alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && iwctl station wlan0 connect \"myhotspotssid\""
+alias neofetch="fastfetch"
+alias cd="z"
+alias wifi="iwctl station wlan0"
+alias pacin="sudo pacman -S --noconfirm"
+alias pacre="sudo pacman -Rns --noconfirm"
+alias yain="yay -S --noconfirm"
+alias yare="yay -Rns --noconfirm"
+alias upgrade="sudo pacman -Syu --noconfirm && yay -Syu --noconfirm"
 # oh my posh
-eval "$(oh-my-posh init zsh --config ~/.ohmyposh/oh-my-posh/themes/catppuccin_mocha.omp.json)"
-export PATH=$PATH:/home/banana/.spicetify
 eval "$(zoxide init zsh)"
+eval "$(oh-my-posh init zsh --config ~/.ohmyposh/themes/catppuccin_mocha.omp.json)"
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
