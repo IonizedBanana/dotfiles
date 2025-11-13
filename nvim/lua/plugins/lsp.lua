@@ -16,17 +16,11 @@ return {
    {
       "neovim/nvim-lspconfig",
       config = function()
-         local capabilities = require('cmp_nvim_lsp').default_capabilities()
-         local lspconfig = require("lspconfig")
-         lspconfig.lua_ls.setup({
-            capabilities = capabilities
-         })
-         lspconfig.bashls.setup({
-            capabilities = capabilities
-         })
+         vim.lsp.enable("lua_ls", "hyprls", "bashls", "jdtls",
+            "pylsp", "shellcheck", "debugpy", "qmlls")
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-         vim.keymap.set({'n', 'v'}, '<Leader>ca', vim.lsp.buf.code_action, {})
+         vim.keymap.set({ 'n', 'v' }, '<Leader>ca', vim.lsp.buf.code_action, {})
       end
    }
 }

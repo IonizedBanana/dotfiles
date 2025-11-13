@@ -19,7 +19,7 @@
 # ==========================
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
-# font-family = Iosevka
+font-family = JetBrainsMonoNerdFont
 # window-padding-x = 2
 #
 # # Spacing around the equals sign does not matter.
@@ -44,3 +44,4 @@
 theme = catppuccin-mocha.conf
 background-opacity = 0.75
 confirm-close-surface = false
+gtk-single-instance = false
