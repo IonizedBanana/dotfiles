@@ -385,7 +385,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Q hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+R hotkey-overlay-title="Run an Application: kickoff" { spawn "kickoff"; }
-    Mod+Shift+R hotkey-overlay-title="firefox profile selector" { spawn "firefox" "-P"; }
+    Mod+Shift+R hotkey-overlay-title="firefox profile selector" { spawn "waterfox"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
