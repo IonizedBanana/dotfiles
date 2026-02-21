@@ -7,19 +7,14 @@ vim.keymap.set('n', '<A-f>', ':ToggleTerm direction=float<CR>')
 vim.keymap.set('n', '<A-t>', ':ToggleTerm<CR>')
 vim.keymap.set('t', '<A-q>', '<c-\\><c-n> :ToggleTerm<CR>')
 
--- nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
--- nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
--- xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
--- nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
--- nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
--- nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+vim.keymap.set("n", "<localleader>e", ":MoltenEvaluateOperator<CR>", { desc = "evaluate operator", silent = true })
+vim.keymap.set("n", "<localleader>os", ":noautocmd MoltenEnterOutput<CR>", { desc = "open output window", silent = true })
 
--- let g:magma_automatically_open_output = v:false
--- let g:magma_image_provider = "ueberzug"
+vim.keymap.set("n", "<localleader>rr", ":MoltenReevaluateCell<CR>", { desc = "re-eval cell", silent = true })
+vim.keymap.set("v", "<localleader>r", ":<C-u>MoltenEvaluateVisual<CR>gv", { desc = "execute visual selection", silent = true })
+vim.keymap.set("n", "<localleader>r", ":MoltenEvaluateLine<CR>", { desc = "execute visual selection", silent = true })
+vim.keymap.set("n", "<localleader>oh", ":MoltenHideOutput<CR>", { desc = "close output window", silent = true })
+vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", { desc = "delete Molten cell", silent = true })
 
-vim.keymap.set('n', '<leader>r', ':MagmaEvaluateOperator<CR>')
-vim.keymap.set('n', '<leader>rr', ':MagmaEvaluateLine<CR>')
-vim.keymap.set('n', '<leader>r', ':<C-u>MagmaEvaluateVisual<CR>')
-vim.keymap.set('n', '<leader>rc', ':MagmaReevaluateCell<CR>')
-vim.keymap.set('n', '<leader>rd', ':MagmaDelete<CR>')
-vim.keymap.set('n', '<leader>ro', ':MagmaShowOutput<CR>')
+-- if you work with html outputs:
+vim.keymap.set("n", "<localleader>mx", ":MoltenOpenInBrowser<CR>", { desc = "open output in browser", silent = true })
