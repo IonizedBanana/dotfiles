@@ -78,7 +78,7 @@ tooltip {
 #custom-caffeine,
 #clock,
 #battery,
-#pulseaudio,
+#wireplumber,
 #cpu,
 #memory,
 #network,
@@ -160,12 +160,20 @@ tooltip {
    border-left: 1px solid transparent;
 }
 
-#pulseaudio {
+#wireplumber {
    color: #b4befe;
+   padding: 7px;
    border: 1px solid #6c7086;
    border-top: 1px solid transparent;
    border-bottom: 1px solid transparent;
 }
+/* #wireplumber.source-muted { */
+   /* color: #f38ba8; */
+   /* padding: 7px; */
+   /* border: 1px solid #6c7086; */
+   /* border-top: 1px solid transparent; */
+   /* border-bottom: 1px solid transparent; */
+/* } */
 
 #memory {
    /* background: #1e1e2e; */

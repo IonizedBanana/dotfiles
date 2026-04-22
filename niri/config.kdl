@@ -76,7 +76,7 @@ input {
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "eDP-1" {
+// output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -86,14 +86,14 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "2880x1920@120"
+    // mode "2880x1920@120"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1.9
+    // scale 1.9
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-    transform "normal"
+    // transform "normal"
 
     // Position of the output in the global coordinate space.
     // This affects directional monitor actions like "focus-monitor-left", and cursor movement.
@@ -104,11 +104,11 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=0 y=0
-}
+    // position x=0 y=0
+// }
 output "LG Electronics LG ULTRAGEAR+ 305NTNH1Z335" {
    // off
-   mode "2560x1440@143.991"
+   mode "2560x1440@240"
    scale 1.3
 }
 cursor {
@@ -635,9 +635,10 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
-    Mod+Delete { spawn "systemctl" "shutdown";}
-    Mod+Shift+Delete { spawn "systemctl" "reboot";}
-    Mod+D { spawn-sh "niri msg output eDP-1 off"; }
+    Mod+Delete { spawn-sh "shutdown now";}
+    Mod+Shift+Delete { spawn-sh "reboot now";}
     Mod+Shift+D { spawn-sh "~/.scripts/docking.sh"; }
     Mod+Escape { spawn "ghostty" "-e" "btop"; }
+
+    F10 {spawn-sh "wpctl set-mute @DEFAULT_SOURCE@ toggle"; }
 }

@@ -14,7 +14,8 @@
      "memory",
      "cpu",
      "backlight",
-     "pulseaudio",
+     "wireplumber",
+     "wireplumber#source",
      "battery",
      "custom/exit"
   ],
@@ -126,24 +127,18 @@
     "format": " {used:0.1f}G/{total:0.1f}G"
     // "max-length": 30
   },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
+  "wireplumber": {
+    "format": " {volume}%",
     "format-muted": "󰖁 Muted",
-    "on-click": "hyprctl dispatch exec [workspace special:scratchpad] \"ghostty -e \"pulsemixer\"\"",
-    "scroll-step": 1,
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾"
-      ]
-    }
+    // "format-source": " {source_volume}",
+    "on-click": "",
+    "scroll-step": 1
+  },
+  "wireplumber#source": {
+      "node-type": "Audio/Source",
+      "format": " {volume}%",
+      "format-muted": "  Muted",
+      "on-click": "wpctl set-volume @DEFAULT_SOURCE@ 1"
   },
   "custom/spotify": {
     "exec": "$HOME/.config/waybar/scripts/spotify.sh",
@@ -155,6 +150,6 @@
   },
   "custom/exit": {
     "format": "<span color='#F38BA8'>⏻</span>",
-    "on-click": "sudo -S \"dixiedoodle\" <<< shutdown now"
+    "on-click": "systemctl shutdown now"
   }
 }
