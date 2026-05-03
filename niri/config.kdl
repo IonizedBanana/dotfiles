@@ -353,6 +353,16 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+blur {
+   passes 2
+   offset 2
+}
+window-rule {
+   match app-id="com.mitchellh.ghostty"
+   background-effect {
+      blur true
+   }
+}
 gestures {
    hot-corners {
       off
