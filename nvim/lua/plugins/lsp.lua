@@ -2,7 +2,12 @@ return {
    {
       "williamboman/mason.nvim",
       config = function()
-         require("mason").setup()
+         require("mason").setup({
+            registries = {
+               "github:mason-org/mason-registry",
+               "github:Crashdummyy/mason-registry",
+            }
+         })
       end
    },
    {
@@ -18,19 +23,26 @@ return {
       dependencies = { 'saghen/blink.cmp' },
       config = function()
          vim.lsp.enable("lua_ls", "hyprls", "bashls", "jdtls",
-            "pylsp", "shellcheck", "debugpy", "qmlls")
+            "pylsp", "shellcheck", "debugpy", "qmlls", "rust_analyzer", "roslyn")
          vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
          vim.keymap.set({ 'n', 'v' }, '<Leader>ca', vim.lsp.buf.code_action, {})
       end
    },
    {
+      "seblyng/roslyn.nvim",
+      ft = "cs",
+      opts = {
+         filewatching = "roslyn"
+      }
+   },
+   {
       "folke/trouble.nvim",
       opts = {
          ---@type trouble.Window.opts
-         win = {type=float},
+         win = { type = float },
       }, -- for default options, refer to the configuration section for custom setup.
-      lazy = false;
+      lazy = false,
       -- cmd = "Trouble",
       keys = {
          {
@@ -66,7 +78,7 @@ return {
          {
             "<leader>gr",
             "<cmd>Trouble lsp_references toggle focus=true win.position=bottom<cr>",
-            desc="find all references",
+            desc = "find all references",
          },
       },
    }
