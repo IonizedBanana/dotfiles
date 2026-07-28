@@ -1,3 +1,0 @@
-return {
-   "vhyrro/luarocks.nvim",
-}
