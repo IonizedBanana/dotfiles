@@ -651,7 +651,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
     Mod+Delete { spawn-sh "shutdown now";}
     Mod+Shift+Delete { spawn-sh "reboot now";}
-    Mod+Shift+D { spawn-sh "~/.scripts/docking.sh"; }
+    Mod+Shift+D { spawn-sh "bash ~/.scripts/docking.sh"; }
     Mod+Escape { spawn "ghostty" "-e" "btop"; }
 
     F10 {spawn-sh "wpctl set-mute @DEFAULT_SOURCE@ toggle"; }

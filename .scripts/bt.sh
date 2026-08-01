@@ -1,6 +1,6 @@
 #/!/bash
 
-state=$(< ~/.scripts/btstate)
+state=$(< ./btstate)
 
 if [ $state = 'on' ]
 then
