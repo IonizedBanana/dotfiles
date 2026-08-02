@@ -1,10 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.ohmyzsh"
 export PATH=$PATH:/home/banana/.local/bin
-export PATH=$PATH:/home/banana/.spicetify
+# export PATH=$PATH:/nix/store/
+# export PATH=$PATH:/run/current-system/sw/bin/
 export GTK_USE_PORTAL=1
+export BW_SESSION="Q5XVftiYQKWQs/+wPmSoaemoweBSsyKbQFMiFNXVLJa+kXZFbdttHOM9crrENA3cl3t5QVvtji5kH6XdXZGQuw=="
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -93,6 +95,10 @@ fi
 # Example aliases
  alias zshconf="nvim ~/.zshrc"
  alias niriconf="nvim ~/.config/niri/config.kdl"
+ alias nixconf="sudoedit /etc/nixos/configuration.nix"
+ alias flakeconf="sudoedit /etc/nixos/flake.nix"
+ alias nixrbsw="sudo nixos-rebuild switch"
+ alias track="bash ~/.scripts/nixpkgs-track.sh"
  alias todo="nvim ~/.todo.md"
  alias //="cd ~/.config"
  alias waybarconf="nvim ~/.config/waybar/config.jsonc"
@@ -119,8 +125,9 @@ alias find="fd"
 alias grep="rg"
 alias df="duf"
 alias ls="eza"
+
 # oh my posh
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh/themes/catppuccin_mocha.omp.json)"
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
