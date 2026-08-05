@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -13,8 +13,20 @@
   # hello from dotfiles folder! p2?
   # gort
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    timeout = 3;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+      theme = lib.mkForce pkgs.catppuccin-grub;
+         configurationLimit = 5;
+    };
+    efi.canTouchEfiVariables = true;
+  };
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -92,14 +104,14 @@
     neovim
     waybar
     ghostty
-    git
     zsh
     ripgrep
     zoxide
     swaybg
     eza
-    kickoff
-    niri
+    #kickoff
+    # ulauncher
+    fuzzel
     nixpkgs-track
     stylua
     nixd
@@ -121,8 +133,11 @@
     gsettings-desktop-schemas
     xdg-desktop-portal-gnome
     glib
-      stremio-linux-shell
-
+    stremio-linux-shell
+    python3
+      wlr-randr
+      fd
+      cloudflared
   ];
 
   fonts.packages = with pkgs; [
@@ -139,6 +154,9 @@
   programs.niri = {
     enable = true;
   };
+   programs.mango = {
+      enable = true;
+   };
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -153,12 +171,31 @@
     polarity = "dark";
   };
   programs.dconf.enable = true;
-
-  # qt = {
-  #   enable = true;
-  #   platformTheme = "gnome";
-  #   style = "adwaita-dark";
-  # };
+  catppuccin = {
+    autoEnable = true;
+    flavor = "mocha";
+    gtk = {
+      icon = {
+        accent = "pink";
+      };
+    };
+  };
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    extraPackages = with pkgs; [
+      gamescope
+      kdePackages.breeze
+    ];
+  };
+   programs.git = {
+     enable = true; 
+   };
+   programs.nh = {
+      enable = true;
+      clean.enable = true;
+   };
 
   programs.dconf.profiles.user.databases = [
     {
@@ -177,7 +214,9 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+   # services.tailscale.enable = true;
+   services.cloudflared.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

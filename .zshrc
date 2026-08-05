@@ -7,6 +7,7 @@ export PATH=$PATH:/home/banana/.local/bin
 # export PATH=$PATH:/run/current-system/sw/bin/
 export GTK_USE_PORTAL=1
 export BW_SESSION="Q5XVftiYQKWQs/+wPmSoaemoweBSsyKbQFMiFNXVLJa+kXZFbdttHOM9crrENA3cl3t5QVvtji5kH6XdXZGQuw=="
+export TERM=xterm-256color
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -95,8 +96,8 @@ fi
 # Example aliases
  alias zshconf="nvim ~/.zshrc"
  alias niriconf="nvim ~/.config/niri/config.kdl"
- alias nixconf="sudoedit /etc/nixos/configuration.nix"
- alias flakeconf="sudoedit /etc/nixos/flake.nix"
+ alias nixconf="nvim ~/dotfiles/configuration.nix"
+ alias flakeconf="nvim ~/dotfiles/flake.nix"
  alias nixrbsw="sudo nixos-rebuild switch"
  alias track="bash ~/.scripts/nixpkgs-track.sh"
  alias todo="nvim ~/.todo.md"
