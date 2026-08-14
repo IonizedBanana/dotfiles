@@ -15,8 +15,7 @@ done
 pathsconfig=(
    "$HOME/.config/btop"
    "$HOME/.config/ghostty"
-   "$HOME/.config/kickoff"
-   "$HOME/.config/neofetch"
+   "$HOME/.config/fuzzel"
    "$HOME/.config/niri"
    "$HOME/.config/nvim"
    "$HOME/.config/swaync"
