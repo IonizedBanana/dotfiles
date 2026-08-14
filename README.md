@@ -4,10 +4,8 @@ this is a collection of all my dotfiles
 self explanatory idk
 
 # instructions
-pretty easy, run the install.sh script and it should hopefully install just about everything
+copy.sh should install most things. note: copy.sh uses syslinks, changes to your local config files will reflect in the repo. copy.sh also removes any existing config.
 
-## install script does NOT work, will fix another time
+copy.sh also assumes youre using nix, and will overwrite your nix configuration if so
 
-## TODO:
-- create an import script
-- fix install script
+this repo is for me, use at your own risk
