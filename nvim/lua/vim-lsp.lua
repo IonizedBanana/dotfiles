@@ -1,3 +1,5 @@
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('nixd')
 vim.lsp.enable('nixfmt')
+vim.lsp.enable('stylua')
+vim.lsp.enable('jdtls')

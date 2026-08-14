@@ -8,6 +8,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./apps.nix
+    ./lsp.nix
   ];
 
   # hello from dotfiles folder! p2?
@@ -21,7 +23,7 @@
       device = "nodev";
       useOSProber = true;
       theme = lib.mkForce pkgs.catppuccin-grub;
-         configurationLimit = 5;
+      configurationLimit = 5;
     };
     efi.canTouchEfiVariables = true;
   };
@@ -97,48 +99,6 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    rustup
-    gcc
-    luaPackages.tree-sitter-cli
-    neovim
-    waybar
-    ghostty
-    zsh
-    ripgrep
-    zoxide
-    swaybg
-    eza
-    #kickoff
-    # ulauncher
-    fuzzel
-    nixpkgs-track
-    stylua
-    nixd
-    nixfmt
-    bitwarden-cli
-    nerd-fonts.jetbrains-mono
-    fastfetch
-    oh-my-posh
-    oh-my-zsh
-    zsh-syntax-highlighting
-    equibop
-    brightnessctl
-    btop
-    zip
-    unzip
-    steam
-    xwayland-satellite
-    dconf
-    gsettings-desktop-schemas
-    xdg-desktop-portal-gnome
-    glib
-    stremio-linux-shell
-    python3
-      wlr-randr
-      fd
-      cloudflared
-  ];
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -154,9 +114,9 @@
   programs.niri = {
     enable = true;
   };
-   programs.mango = {
-      enable = true;
-   };
+  programs.mango = {
+    enable = true;
+  };
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -189,13 +149,13 @@
       kdePackages.breeze
     ];
   };
-   programs.git = {
-     enable = true; 
-   };
-   programs.nh = {
-      enable = true;
-      clean.enable = true;
-   };
+  programs.git = {
+    enable = true;
+  };
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+  };
 
   programs.dconf.profiles.user.databases = [
     {
@@ -215,8 +175,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-   # services.tailscale.enable = true;
-   services.cloudflared.enable = true;
+  # services.tailscale.enable = true;
+  services.cloudflared.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
