@@ -98,6 +98,8 @@ fi
  alias niriconf="nvim ~/.config/niri/config.kdl"
  alias nixconf="nvim ~/dotfiles/configuration.nix"
  alias flakeconf="nvim ~/dotfiles/flake.nix"
+ alias lspadd="nvim ~/dotfiles/lsp.nix && nvim ~/.config/nvim/lua/vim-lsp.lua"
+ alias nixin="nvim ~/dotfiles/apps.nix"
  alias nixrbsw="sudo nixos-rebuild switch"
  alias track="bash ~/.scripts/nixpkgs-track.sh"
  alias todo="nvim ~/.todo.md"
