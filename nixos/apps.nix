@@ -1,0 +1,42 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    gcc
+    luaPackages.tree-sitter-cli
+    neovim
+    waybar
+    ghostty
+    zsh
+    ripgrep
+    zoxide
+    swaybg
+    eza
+    fuzzel
+    nixpkgs-track
+    bitwarden-cli
+    nerd-fonts.jetbrains-mono
+    fastfetch
+    oh-my-posh
+    oh-my-zsh
+    zsh-syntax-highlighting
+    equibop
+    brightnessctl
+    btop
+    zip
+    unzip
+    steam
+    r2modman
+    xwayland-satellite
+    dconf
+    gsettings-desktop-schemas
+    xdg-desktop-portal-gnome
+    glib
+    stremio-linux-shell
+    python3
+    wlr-randr
+    fd
+    cloudflared
+    wine64
+    jdk
+  ];
+}
