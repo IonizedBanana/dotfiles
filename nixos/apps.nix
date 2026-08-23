@@ -41,5 +41,6 @@
     cpplint
     lsplug
     obs-studio
+    nfs-utils
   ];
 }
