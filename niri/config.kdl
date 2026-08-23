@@ -108,7 +108,7 @@ input {
 // }
 output "LG Electronics LG ULTRAGEAR+ 305NTNH1Z335" {
    // off
-   mode "2560x1440@240"
+   mode "2560x1440@119.998"
    scale 1.3
 }
 output "Shenzhen KTC Technology Group H24T27 0x00000001" {
@@ -280,6 +280,7 @@ layout { // Set gaps around windows in logical pixels. gaps 16
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "swaync"
 spawn-sh-at-startup "swaybg -i ~/.wallpapers/cat.png"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:

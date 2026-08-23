@@ -38,5 +38,8 @@
     cloudflared
     wine64
     jdk
+    cpplint
+    lsplug
+    obs-studio
   ];
 }

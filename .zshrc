@@ -96,10 +96,10 @@ fi
 # Example aliases
  alias zshconf="nvim ~/.zshrc"
  alias niriconf="nvim ~/.config/niri/config.kdl"
- alias nixconf="nvim ~/dotfiles/configuration.nix"
- alias flakeconf="nvim ~/dotfiles/flake.nix"
- alias lspadd="nvim ~/dotfiles/lsp.nix && nvim ~/.config/nvim/lua/vim-lsp.lua"
- alias nixin="nvim ~/dotfiles/apps.nix"
+ alias nixconf="nvim ~/dotfiles/nixos/configuration.nix"
+ alias flakeconf="nvim ~/dotfiles/nixos/flake.nix"
+ alias lspadd="nvim ~/dotfiles/nixos/lsp.nix && nvim ~/.config/nvim/lua/vim-lsp.lua"
+ alias nixin="nvim ~/dotfiles/nixos/apps.nix"
  alias nixrbsw="sudo nixos-rebuild switch"
  alias track="bash ~/.scripts/nixpkgs-track.sh"
  alias todo="nvim ~/.todo.md"
@@ -128,6 +128,7 @@ alias find="fd"
 alias grep="rg"
 alias df="duf"
 alias ls="eza"
+alias gpp="g++ -Wall"
 
 # oh my posh
 eval "$(zoxide init zsh)"

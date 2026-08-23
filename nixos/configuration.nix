@@ -10,10 +10,9 @@
     ./hardware-configuration.nix
     ./apps.nix
     ./lsp.nix
+    ./laptop.nix
   ];
 
-  # hello from dotfiles folder! p2?
-  # gort
   # Bootloader.
   boot.loader = {
     timeout = 3;
@@ -27,18 +26,14 @@
     };
     efi.canTouchEfiVariables = true;
   };
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  # networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;
   networking.wireless.iwd.settings = {
     Network = {

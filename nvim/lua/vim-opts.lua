@@ -7,9 +7,9 @@ vim.diagnostic.config({
 })
 vim.cmd("set number")
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=3")
-vim.cmd("set softtabstop=3")
-vim.cmd("set shiftwidth=3")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 
