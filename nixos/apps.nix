@@ -41,6 +41,8 @@
     cpplint
     lsplug
     obs-studio
+    progress
     nfs-utils
+    gnumake
   ];
 }

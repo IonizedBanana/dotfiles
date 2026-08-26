@@ -11,6 +11,8 @@
     ./apps.nix
     ./lsp.nix
     ./laptop.nix
+    ./netbird.nix
+    ./nas.nix
   ];
 
   # Bootloader.
@@ -27,7 +29,11 @@
     efi.canTouchEfiVariables = true;
   };
 
+  services.resolved.enable = false;
   networking.hostName = "nixos"; # Define your hostname.
+  networking.nameservers = [ 
+    "192.168.1.133"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
