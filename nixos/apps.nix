@@ -47,5 +47,6 @@
     nfs-utils
     gnumake
     vlc
+    nmap
   ];
 }

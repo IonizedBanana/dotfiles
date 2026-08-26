@@ -148,7 +148,6 @@
     localNetworkGameTransfers.openFirewall = true;
     extraPackages = with pkgs; [
       gamescope
-      kdePackages.breeze
     ];
   };
   programs.git = {
