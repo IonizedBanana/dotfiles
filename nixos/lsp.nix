@@ -1,12 +1,13 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    rustup
+    rust-analyzer
+    rustfmt
     stylua
     nixd
     nixfmt
     jdt-language-server
     # libclang
-      ccls
+    ccls
   ];
 }

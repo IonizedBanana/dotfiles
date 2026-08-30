@@ -7,7 +7,7 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     ./apps.nix
     ./lsp.nix
     ./laptop.nix
@@ -29,30 +29,21 @@
     efi.canTouchEfiVariables = true;
   };
 
-  services.resolved.enable = false;
   networking.hostName = "nixos"; # Define your hostname.
-  networking.nameservers = [ 
+  networking.nameservers = [
     "192.168.1.133"
   ];
+  # services.resolved.enable = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.wireless.iwd.enable = true;
-  networking.wireless.iwd.settings = {
-    Network = {
-      EnableIPv6 = true;
-    };
-    General = {
-      EnableNetworkConfiguration = true;
-    };
-    Settings = {
-      AutoConnect = true;
-    };
+  services.connman = {
+    enable = true;
+    wifi.backend = "iwd";
   };
-
   # Set your time zone.
   time.timeZone = "America/New_York";
 

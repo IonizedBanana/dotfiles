@@ -2,6 +2,8 @@
 {
   environment.systemPackages = with pkgs; [
     gcc
+    rustc
+    cargo
     luaPackages.tree-sitter-cli
     neovim
     waybar
@@ -10,6 +12,7 @@
     ripgrep
     zoxide
     swaybg
+    swaynotificationcenter
     eza
     fuzzel
     nixpkgs-track
@@ -44,5 +47,6 @@
     progress
     nfs-utils
     gnumake
+    vlc
   ];
 }
