@@ -7,7 +7,7 @@
     nixd
     nixfmt
     jdt-language-server
-    # libclang
-    ccls
+    clang-tools
+    # ccls
   ];
 }

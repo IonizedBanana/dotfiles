@@ -32,17 +32,28 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.nameservers = [
     "192.168.1.133"
+    "1.1.1.1"
   ];
-  # services.resolved.enable = false;
+  services.resolved.enable = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  services.connman = {
+  networking.wireless.iwd = {
     enable = true;
-    wifi.backend = "iwd";
+    settings = {
+      Network = {
+        EnableIPv6 = true;
+      };
+      General = {
+        EnableNetworkConfiguration = true;
+      };
+      Settings = {
+        AutoConnect = true;
+      };
+    };
   };
   # Set your time zone.
   time.timeZone = "America/New_York";

@@ -1,13 +1,13 @@
 #/!/bash
 
-state=$(< ./dockstate)
+state=$HOME/.scripts/dockstate
 
 if [ $state = 'on' ]
 then
    niri msg output eDP-1 off
-  echo off > ./dockstate
+  echo off > $state
 elif [ $state = 'off' ]
 then
    niri msg output eDP-1 on
-  echo on > ./dockstate
+  echo on > $state
 fi
