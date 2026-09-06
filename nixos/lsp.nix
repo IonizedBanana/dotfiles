@@ -9,5 +9,6 @@
     jdt-language-server
     clang-tools
     # ccls
+    bash-language-server
   ];
 }

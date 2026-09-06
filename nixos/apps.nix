@@ -35,7 +35,6 @@
     xdg-desktop-portal-gnome
     glib
     stremio-linux-shell
-    python3
     wlr-randr
     fd
     cloudflared

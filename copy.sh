@@ -29,10 +29,5 @@ for i in "${pathsconfig[@]}"; do
    fi
    ln -s "$here/${i#$HOME/.config}" $i
 done
-if [ -e "/etc/nixos/configuration.nix"]; do
-   rm /etc/nixos/configuration.nix
-   ln ./configuration.nix /etc/nixos/configuration.nix
-   ln ./flake.nix /etc/nixos/flake.nix
-   ln ./flake.lock /etc/nixos/flake.lock
-   ln ./apps.nix /etc/nixos/apps.nix
-   ln ./lsp.nix /etc/nixos/lsp.nix
+sudo rm /etc/nixos/*
+sudo ln -s $HOME/dotfiles/nixos/* /etc/nixos/

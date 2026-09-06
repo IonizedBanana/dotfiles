@@ -46,7 +46,7 @@
           ({ pkgs, ... }: {
             environment.systemPackages = [
               helium.packages.${system}.default
-               niri-scratchpad-flake.packages.${system}.default
+              niri-scratchpad-flake.packages.${system}.default
             ];
           })
         ];

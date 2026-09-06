@@ -13,8 +13,11 @@
     ./laptop.nix
     ./netbird.nix
     ./nas.nix
+    ./mathlab.nix
   ];
 
+  # kernel version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # Bootloader.
   boot.loader = {
     timeout = 3;
@@ -30,11 +33,7 @@
   };
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.nameservers = [
-    "192.168.1.133"
-    "1.1.1.1"
-  ];
-  services.resolved.enable = false;
+  services.resolved.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -180,6 +179,7 @@
   services.openssh.enable = true;
   # services.tailscale.enable = true;
   services.cloudflared.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
