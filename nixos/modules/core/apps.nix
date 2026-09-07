@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     gcc
+    cowsay
     rustc
     cargo
     luaPackages.tree-sitter-cli
@@ -48,5 +49,6 @@
     gnumake
     vlc
     nmap
+    libreoffice
   ];
 }
