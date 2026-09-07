@@ -14,6 +14,9 @@
     ../../modules/core/nas.nix
 
   ];
-
+  
   networking.hostName = "terra"; # Define your hostname.
+  networking.nameservers = [
+    "192.168.1.133"
+  ];
 }

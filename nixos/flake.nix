@@ -11,10 +11,10 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # catppuccin = {
+    #   url = "github:catppuccin/nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     niri-scratchpad-flake = {
       url = "github:gvolpe/niri-scratchpad";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,14 +28,14 @@
       nixpkgs,
       stylix,
       helium,
-      catppuccin,
+      # catppuccin,
       niri-scratchpad-flake,
     }:
     let
       system = "x86_64-linux";
         sharedModules = [
           stylix.nixosModules.default
-          catppuccin.nixosModules.catppuccin
+          # catppuccin.nixosModules.catppuccin
           ({ pkgs, ... }: {
             environment.systemPackages = [
               helium.packages.${system}.default
