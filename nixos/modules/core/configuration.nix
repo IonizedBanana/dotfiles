@@ -5,17 +5,6 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [
-    # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
-    ./apps.nix
-    ./lsp.nix
-    ./laptop.nix
-    ./netbird.nix
-    ./nas.nix
-    ./mathlab.nix
-  ];
-
   # kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # Bootloader.
@@ -32,7 +21,6 @@
     efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
   services.resolved.enable = true;
 
   # Configure network proxy if necessary
@@ -116,9 +104,6 @@
   programs.niri = {
     enable = true;
   };
-  programs.mango = {
-    enable = true;
-  };
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -131,16 +116,6 @@
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     polarity = "dark";
-  };
-  programs.dconf.enable = true;
-  catppuccin = {
-    autoEnable = true;
-    flavor = "mocha";
-    gtk = {
-      icon = {
-        accent = "pink";
-      };
-    };
   };
   programs.steam = {
     enable = true;
@@ -158,26 +133,11 @@
     clean.enable = true;
   };
 
-  programs.dconf.profiles.user.databases = [
-    {
-      lockAll = true; # prevents overriding
-      settings = {
-        "org/gnome/desktop/interface" = {
-          accent-color = "blue";
-        };
-        "org/gnome/desktop/input-sources" = {
-          xkb-options = [ "ctrl:nocaps" ];
-        };
-      };
-    }
-  ];
-  environment.sessionVariables.QT_STYLE_OVERRIDE = "adwaita-dark";
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   # services.tailscale.enable = true;
-  services.cloudflared.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Open ports in the firewall.

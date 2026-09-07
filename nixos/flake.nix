@@ -33,16 +33,9 @@
     }:
     let
       system = "x86_64-linux";
-    in
-    {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
+        sharedModules = [
           stylix.nixosModules.default
           catppuccin.nixosModules.catppuccin
-
-          ./configuration.nix
-
           ({ pkgs, ... }: {
             environment.systemPackages = [
               helium.packages.${system}.default
@@ -50,6 +43,17 @@
             ];
           })
         ];
+    in
+    {
+      nixosConfigurations = {
+        terra = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = sharedModules ++ [./hosts/terra/configuration.nix];
+        };
+        luna = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = sharedModules ++[./hosts/luna/configuration.nix];
+        };
       };
     };
 }
