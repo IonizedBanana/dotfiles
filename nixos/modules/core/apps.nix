@@ -49,5 +49,6 @@
     gnumake
     vlc
     nmap
+    bun
   ];
 }

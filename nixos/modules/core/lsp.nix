@@ -8,7 +8,7 @@
     nixfmt
     jdt-language-server
     clang-tools
-    # ccls
     bash-language-server
+    typescript-language-server
   ];
 }
