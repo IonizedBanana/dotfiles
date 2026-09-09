@@ -14,7 +14,7 @@ export TERM=xterm-256color
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -34,13 +34,14 @@ zstyle ':omz:update' frequency 2
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="%F{magenta}waiting...%f"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -94,13 +95,14 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
- alias zshconf="nvim ~/.zshrc"
+ alias zshconf="nvim ~/dotfiles/.zsh/.zshrc"
  alias niriconf="nvim ~/.config/niri/config.kdl"
- alias nixconf="nvim ~/dotfiles/nixos/configuration.nix"
+ alias nixconf="HOST=$(hostname) | nvim ~/dotfiles/nixos/hosts/${HOST}/configuration.nix"
+ alias nixconfg="nvim ~/dotfiles/nixos/modules/core/configuration.nix"
  alias flakeconf="nvim ~/dotfiles/nixos/flake.nix"
- alias lspadd="nvim ~/dotfiles/nixos/lsp.nix && nvim ~/.config/nvim/lua/vim-lsp.lua"
- alias nixin="nvim ~/dotfiles/nixos/apps.nix"
- alias nixrbsw="sudo nixos-rebuild switch"
+ alias lspadd="nvim ~/dotfiles/nixos/modules/core/lsp.nix && nvim ~/.config/nvim/lua/vim-lsp.lua"
+ alias nixin="nvim ~/dotfiles/nixos/modules/core/apps.nix"
+alias nixrbsw="(cd ~/dotfiles/nixos; sudo nixos-rebuild switch --flake .)"
  alias track="bash ~/.scripts/nixpkgs-track.sh"
  alias todo="nvim ~/.todo.md"
  alias //="cd ~/.config"
@@ -108,21 +110,11 @@ fi
  alias waybarcat="cat ~/.config/waybar/config.jsonc > ~/.config/waybar/config"
  alias sshban="ssh banana@192.168.1.118"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vpn="expressvpn"
-alias swap="cd ~/.local/state/nvim/swap//"
 alias disconnect="iwctl station wlan0 disconnect"
-alias fo="~/.scripts/obsidian-fixer.sh"
-alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && sleep 5 && iwctl station wlan0 connect \"Caydens phone\""
-alias neofetch="fastfetch"
+alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && iwctl station wlan0 connect \"Caydens phone\""
 alias cd="z"
 alias wifi="iwctl station wlan0"
-alias pacin="sudo pacman -S --noconfirm"
-alias pacre="sudo pacman -Rns --noconfirm"
-alias parin="paru -S"
-alias parre="paru -Rns"
-alias upgrade="paru -Syu --noconfirm"
 alias wprogress="watch -n 0.1 progress -w"
-alias pacQ="pacman -Q | grep"
 alias cdc="cd && clear"
 alias find="fd"
 alias grep="rg"
@@ -133,5 +125,5 @@ alias gpp="g++ -Wall"
 # oh my posh
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.ohmyposh/themes/catppuccin_mocha.omp.json)"
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ~/dotfiles/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

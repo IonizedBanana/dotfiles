@@ -49,6 +49,5 @@
     gnumake
     vlc
     nmap
-    libreoffice
   ];
 }
