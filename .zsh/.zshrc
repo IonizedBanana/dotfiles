@@ -34,7 +34,7 @@ zstyle ':omz:update' frequency 2
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -111,7 +111,7 @@ alias nixrbsw="(cd ~/dotfiles/nixos; sudo nixos-rebuild switch --flake .)"
  alias sshban="ssh banana@192.168.1.118"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias disconnect="iwctl station wlan0 disconnect"
-alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && iwctl station wlan0 connect \"Caydens phone\""
+alias hotspot="iwctl station wlan0 scan && iwctl station wlan0 disconnect && sleep 3 && iwctl station wlan0 connect \"Caydens phone\""
 alias cd="z"
 alias wifi="iwctl station wlan0"
 alias wprogress="watch -n 0.1 progress -w"

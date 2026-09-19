@@ -6,6 +6,8 @@
       sympy
       jupyterlab
       matplotlib
+      notebook
+      pip
     ]))
   ];
 }

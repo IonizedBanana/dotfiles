@@ -50,5 +50,6 @@
     vlc
     nmap
     bun
+    brave-origin
   ];
 }

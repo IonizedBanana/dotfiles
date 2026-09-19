@@ -8,6 +8,7 @@
       "noauto"
       "x-systemd.idle-timeout=60"
       "soft"
+      "_netdev"
     ];
   };
   boot.supportedFilesystems = [
