@@ -11,6 +11,8 @@
     ./laptop.nix
     ./mathlab.nix
     ./netbird.nix
+    ./logisim.nix
+    ../../modules/core/openclaude.nix
     ../../modules/core/configuration.nix
     ../../modules/core/apps.nix
     ../../modules/core/lsp.nix

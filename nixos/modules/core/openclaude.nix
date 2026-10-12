@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  enviornment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     openclaude
   ];
 }

@@ -121,6 +121,8 @@ alias grep="rg"
 alias df="duf"
 alias ls="eza"
 alias gpp="g++ -Wall"
+alias logisim="sudo docker run -d --name logisim --rm -p 5900:5900 logisim-csce211 && sleep 1 && wlvncc localhost 5900 -c 0 -q 9 -d & disown"
+alias logistop="sudo docker stop logisim"
 
 # oh my posh
 eval "$(zoxide init zsh)"

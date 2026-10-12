@@ -13,11 +13,18 @@
     };
     # catppuccin = {
     #   url = "github:catppuccin/nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     # };
     niri-scratchpad-flake = {
       url = "github:gvolpe/niri-scratchpad";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    openclaude-nix = {
+      url = "github:eureka-cpu/openclaude-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sonora = {
+      url = "github:sonorahq/sonora";
     };
 
   };
@@ -30,29 +37,33 @@
       helium,
       # catppuccin,
       niri-scratchpad-flake,
+      openclaude-nix,
+      sonora,
     }:
     let
       system = "x86_64-linux";
-        sharedModules = [
-          stylix.nixosModules.default
-          # catppuccin.nixosModules.catppuccin
-          ({ pkgs, ... }: {
-            environment.systemPackages = [
-              helium.packages.${system}.default
-              niri-scratchpad-flake.packages.${system}.default
-            ];
-          })
-        ];
+      sharedModules = [
+        stylix.nixosModules.default
+        # catppuccin.nixosModules.catppuccin
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [ openclaude-nix.overlays.default ];
+          environment.systemPackages = [
+            helium.packages.${system}.default
+            sonora.packages.${system}.default
+            niri-scratchpad-flake.packages.${system}.default
+          ];
+        })
+      ];
     in
     {
       nixosConfigurations = {
         terra = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = sharedModules ++ [./hosts/terra/configuration.nix];
+          modules = sharedModules ++ [ ./hosts/terra/configuration.nix ];
         };
         luna = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = sharedModules ++[./hosts/luna/configuration.nix];
+          modules = sharedModules ++ [ ./hosts/luna/configuration.nix ];
         };
       };
     };

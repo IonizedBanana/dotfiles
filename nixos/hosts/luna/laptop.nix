@@ -17,6 +17,8 @@
   environment.systemPackages = with pkgs; [
     vscode
     libfprint-2-tod1-goodix
+    jq
+    maven
   ];
   powerManagement.enable = true;
   boot.resumeDevice = "/dev/disk/by-uuid/902826df-b30e-4c06-b67a-fd7a2c56fbb7";
