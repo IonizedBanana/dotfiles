@@ -9,6 +9,7 @@
     neovim
     waybar
     ghostty
+    kitty
     zsh
     ripgrep
     zoxide

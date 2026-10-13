@@ -13,7 +13,7 @@
     };
     # catppuccin = {
     #   url = "github:catppuccin/nix";
-      # inputs.nixpkgs.follows = "nixpkgs";
+    # inputs.nixpkgs.follows = "nixpkgs";
     # };
     niri-scratchpad-flake = {
       url = "github:gvolpe/niri-scratchpad";
@@ -25,6 +25,14 @@
     };
     sonora = {
       url = "github:sonorahq/sonora";
+    };
+    mango = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    waybar-git = {
+      url = "github:Alexays/Waybar";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -39,6 +47,8 @@
       niri-scratchpad-flake,
       openclaude-nix,
       sonora,
+      mango,
+      waybar-git,
     }:
     let
       system = "x86_64-linux";
@@ -46,11 +56,17 @@
         stylix.nixosModules.default
         # catppuccin.nixosModules.catppuccin
         ({ pkgs, ... }: {
-          nixpkgs.overlays = [ openclaude-nix.overlays.default ];
+          nixpkgs.overlays = [
+            openclaude-nix.overlays.default
+            (final: prev: {
+              waybar = waybar-git.packages.${system}.default;
+            })
+          ];
           environment.systemPackages = [
             helium.packages.${system}.default
             sonora.packages.${system}.default
             niri-scratchpad-flake.packages.${system}.default
+            mango.packages.${system}.default
           ];
         })
       ];

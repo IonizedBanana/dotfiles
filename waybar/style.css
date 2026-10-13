@@ -41,12 +41,11 @@ tooltip {
    border-radius: 10px;
 }
 
-#workspaces button.active {
-   color: #cdd6f4;
+/* #workspaces button.active { */
+/*    color: #cdd6f4; */
+/* } */
 
-}
-
-#workspaces button.focused {
+#workspaces button.active{
    color: #cdd6f4;
    /* background: #45475a; */
    border-radius: 7px;
@@ -64,6 +63,12 @@ tooltip {
    color: #cdd6f4;
    border: 2px solid #b4befe;
    background: transparent;
+}
+
+#workspaces button.empty {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #custom-launcher {
