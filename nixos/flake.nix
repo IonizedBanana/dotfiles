@@ -23,6 +23,9 @@
       url = "github:eureka-cpu/openclaude-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
+    };
     sonora = {
       url = "github:sonorahq/sonora";
     };
@@ -33,6 +36,9 @@
     waybar-git = {
       url = "github:Alexays/Waybar";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    forticlient-nixos = {
+      url = "github:jplana/forticlient-nixos";
     };
 
   };
@@ -49,6 +55,8 @@
       sonora,
       mango,
       waybar-git,
+    forticlient-nixos,
+    claude-code,
     }:
     let
       system = "x86_64-linux";
@@ -58,6 +66,7 @@
         ({ pkgs, ... }: {
           nixpkgs.overlays = [
             openclaude-nix.overlays.default
+            claude-code.overlays.default
             (final: prev: {
               waybar = waybar-git.packages.${system}.default;
             })

@@ -3,6 +3,7 @@
   services.fprintd = {
     enable = true;
   };
+  # services.forticlient.enable = true;
   security.pam.services.sudo.fprintAuth = true;
   hardware.bluetooth = {
     enable = true;

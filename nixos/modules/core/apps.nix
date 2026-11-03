@@ -31,10 +31,10 @@
     unzip
     steam
     r2modman
-    xwayland-satellite
+    xwayland
     dconf
     gsettings-desktop-schemas
-    xdg-desktop-portal-gnome
+    xdg-desktop-portal-wlr
     glib
     stremio-linux-shell
     wlr-randr
@@ -51,5 +51,10 @@
     vlc
     nmap
     bun
+    adwaita-icon-theme
+    grim
+    slurp
+    wl-clipboard
+    claude-code
   ];
 }
